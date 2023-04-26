@@ -9,10 +9,17 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
-  const getTours = async () => {
+  const removeTour = (id) => {
+    const newTours = tours.filter((tour) => tour.id !== id);
+    setTours(newTours);
+  };
+
+  const fetchTours = async () => {
+    setIsLoading(true);
     try {
       const response = await fetch(url);
       if (!response.ok) {
+        setIsLoading(false);
         setIsError(true);
       }
       const tours = await response.json();
@@ -25,19 +32,31 @@ const App = () => {
   };
 
   useEffect(() => {
-    getTours();
+    fetchTours();
   }, []);
 
   if (isLoading) {
-    return <Loading />;
+    return (
+      <main>
+        <Loading />
+      </main>
+    );
   }
+
   if (isError) {
-    return <h3 style={{ margin: '2rem' }}>We got an error</h3>;
+    return (
+      <main>
+        <h3 style={{ margin: '2rem' }}>We got an error</h3>
+      </main>
+    );
   }
+
+  // TODO  Button
 
   return (
     <main>
-      <Tours tours={tours} />
+      {console.log(tours.length)}
+      <Tours tours={tours} removeTour={removeTour} />
     </main>
   );
 };

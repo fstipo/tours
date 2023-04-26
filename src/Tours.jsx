@@ -1,17 +1,19 @@
 import Tour from './Tour';
 
-const Tours = ({ tours }) => {
+const Tours = ({ tours, removeTour }) => {
   return (
-    <>
-      <h2 className="title">Our Tours</h2>
-      <p className="title-underline"></p>
-      <section className="tours ">
+    <section>
+      <div className="title">
+        <h2>Our Tours</h2>
+        <div className="title-underline"></div>
+      </div>
+      <div className="tours">
         {tours.map((tour) => (
-          <Tour key={tour.id} {...tour} />
+          <Tour key={tour.id} {...tour} removeTour={removeTour} />
         ))}
         <Tour />
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 export default Tours;

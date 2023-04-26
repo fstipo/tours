@@ -1,4 +1,4 @@
 const Loading = () => {
-  return <div className="loading" style={{ marginTop: '4rem' }}></div>;
+  return <div className="loading"></div>;
 };
 export default Loading;

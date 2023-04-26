@@ -1,18 +1,20 @@
-const Tour = (tours) => {
-  console.log(tours);
-  const { image, name, price, info } = tours;
+const Tour = ({ id, image, name, price, info, removeTour }) => {
   return (
-    <div className="single-tour">
-      <span className="tour-price">{price}</span>
+    <article className="single-tour">
+      <span className="tour-price">${price}</span>
       <img src={image} alt={name} className="img" title={name} />
       <div className="tour-info">
         <h5>{name}</h5>
         <p>{info}</p>
-        <button className="btn btn-block info-btn delete-btn" type="button">
-          not interested
-        </button>
       </div>
-    </div>
+      <button
+        className="btn btn-block delete-btn"
+        type="button"
+        onClick={() => removeTour(id)}
+      >
+        not interested
+      </button>
+    </article>
   );
 };
 export default Tour;
