@@ -55,7 +55,6 @@ const App = () => {
 
   return (
     <main>
-      {console.log(tours.length)}
       <Tours tours={tours} removeTour={removeTour} />
     </main>
   );

@@ -11,7 +11,6 @@ const Tours = ({ tours, removeTour }) => {
         {tours.map((tour) => (
           <Tour key={tour.id} {...tour} removeTour={removeTour} />
         ))}
-        <Tour />
       </div>
     </section>
   );
