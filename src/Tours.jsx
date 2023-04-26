@@ -1,7 +1,6 @@
 import Tour from './Tour';
 
 const Tours = ({ tours }) => {
-  console.log(tours);
   return (
     <>
       <h2 className="title">Our Tours</h2>
