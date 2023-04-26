@@ -3,7 +3,6 @@ import { useState } from 'react';
 const Tour = ({ id, image, name, price, info, removeTour }) => {
   const [readMore, setReadMore] = useState(false);
 
-  console.log(info.substring(0, 300));
   return (
     <article className="single-tour">
       <img src={image} alt={name} className="img" title={name} />
